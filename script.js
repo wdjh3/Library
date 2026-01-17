@@ -3,6 +3,7 @@ const myLibrary = [];
 const newBookBtn = document.getElementById("new-book");
 const newBookForm = document.getElementById("add-new-book-popup");
 const submitBtn = document.getElementById("submit-btn");
+const editBookButtons = [];
 
 // Dummy books for testing purposes
 addBookToLibrary("J.K. Rowling", "Harry Potter", "200", false);
@@ -16,10 +17,22 @@ function Book(author, title, pages, hasBeenRead) {
   this.hasBeenRead = hasBeenRead;
 }
 
+function EditButton(name, image, func) {
+  this.name = name;
+  this.image = image;
+  this.func = func;
+}
+
 function addBookToLibrary(author, title, pages, hasBeenRead) {
   const book = new Book(author, title, pages, hasBeenRead);
 
   myLibrary.push(book);
+}
+
+function addEditButton(name, image, func) {
+  const editBookButton = new EditButton(name, image, func);
+
+  editBookButtons.push(editBookButton);
 }
 
 function renderBooks() {
