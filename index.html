@@ -16,6 +16,7 @@
 				<th>Pages</th>
 				<th>Has been read?</th>
 				<th>Delete</th>
+				<th>Toggle Read</th>
 			</tr>
 		</thead>
 		<tbody id="library-data">
@@ -24,16 +25,16 @@
 	</table>
 	<button id="new-book">New Book</button>
 	<dialog id="add-new-book-popup">
-		<form action="">
+		<form action="" id="new-book-form">
 			<div><label for="author">Author</label><input required type="text" name="author" id="author"></div>
 			<div><label for="title">Title</label><input required type="text" name="title" id="title"></div>
-			<div><label for="pages">Number of pages</label><input required type="tel" name="pages" id="pages" pattern="^[0-9]*$"></div>
+			<div><label for="pages">Number of pages</label><input required type="tel" name="pages" id="pages" pattern="^[0-9]+$"></div>
 			<div>
 				<p>Have you read it?</p>
 				<input type="radio" name="has-been-read" id="has-been-read" checked><label for="has-been-read">Yes</label>
 				<input type="radio" name="has-been-read" id="has-not-been-read"><label for="has-not-been-read">No</label>
 			</div>
-			<button type="button" id="submit-btn">Submit</button>
+			<button type="submit" id="submit-btn">Submit</button>
 			<button type="submit" formmethod="dialog">Close</button>
 		</form>
 	</dialog>
