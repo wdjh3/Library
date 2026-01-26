@@ -5,21 +5,23 @@ const newBookFormPopup = document.getElementById("add-new-book-popup");
 const submitBtn = document.getElementById("submit-btn");
 const newBookForm = document.getElementById("new-book-form");
 
-// Dummy books for testing purposes
-addBookToLibrary("J.K. Rowling", "Harry Potter", "200", false);
-renderBooks();
+class Book {
+  constructor(author, title, pages, hasBeenRead) {
+    this.id = crypto.randomUUID();
+    this.author = author;
+    this.title = title;
+    this.pages = pages;
+    this.hasBeenRead = hasBeenRead;
+  }
 
-function Book(author, title, pages, hasBeenRead) {
-  this.id = crypto.randomUUID();
-  this.author = author;
-  this.title = title;
-  this.pages = pages;
-  this.hasBeenRead = hasBeenRead;
-
-  this.toggleRead = function () {
+  toggleRead = () => {
     this.hasBeenRead = !this.hasBeenRead;
   };
 }
+
+// Dummy books for testing purposes
+addBookToLibrary("J.K. Rowling", "Harry Potter", "200", false);
+renderBooks();
 
 function addBookToLibrary(author, title, pages, hasBeenRead) {
   const book = new Book(author, title, pages, hasBeenRead);
